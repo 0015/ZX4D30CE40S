@@ -21,7 +21,7 @@ lv_obj_set_style_pad_row(ui_ScreenCameraPhoto, 0, LV_PART_MAIN| LV_STATE_DEFAULT
 lv_obj_set_style_pad_column(ui_ScreenCameraPhoto, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_PanelCameraPhotoTitle = lv_obj_create(ui_ScreenCameraPhoto);
-lv_obj_set_height( ui_PanelCameraPhotoTitle, 80);
+lv_obj_set_height( ui_PanelCameraPhotoTitle, 50);
 lv_obj_set_width( ui_PanelCameraPhotoTitle, lv_pct(100));
 lv_obj_set_align( ui_PanelCameraPhotoTitle, LV_ALIGN_TOP_MID );
 lv_obj_clear_flag( ui_PanelCameraPhotoTitle, LV_OBJ_FLAG_SCROLLABLE );    /// Flags

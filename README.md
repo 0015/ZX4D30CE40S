@@ -1,24 +1,26 @@
-# 说明文档
 
-使用esp-idf最新环境(5.5.0),lvgl8
 
-- components
-  - apps    (放置APP)
-  - camera_video    (摄像头示例)
-  - custom_board    (板子引脚，RGB屏幕驱动示例)
-  - esp_lcd_touch_cst3240 (只做了单点触摸，多点需要修改此驱动)
-  - esp_lvgl_port   (乐鑫官方库，修改了`esp_lvgl_port_disp.c`文件，让P4也能使用RGB屏幕)
-  - eth_ethernet    (网口示例)
-  - human_face_detect
-  - pedestrian_detect
-  - sd_card_sdmmc   (SD卡示例)
-  - tusb            (USB示例)
-- main
-  - brookesia       (ESP-Brookesia使用示例)
+# Documentation
+
+Using the latest ESP-IDF environment (v5.5.0) with LVGL v8.
+
+- Components
+  - **apps**: Contains application examples.
+  - **camera_video**: Example for camera functionality.
+  - **custom_board**: Includes board pin configurations and RGB screen driver examples.
+  - **esp_lcd_touch_cst3240**: Supports single-point touch. Modifications are required for multi-point touch support.
+  - **esp_lvgl_port**: Official Espressif LVGL library. Modified the `esp_lvgl_port_disp.c` file to enable RGB screen usage on P4.
+  - **eth_ethernet**: Example for Ethernet functionality.
+  - **human_face_detect**: Human face detection example.
+  - **pedestrian_detect**: Pedestrian detection example.
+  - **sd_card_sdmmc**: Example for SD card functionality.
+  - **tusb**: Example for USB functionality.
+- Main
+  - **brookesia**: Example usage of ESP-Brookesia.
 
 ## APP_PanelLAN
-APP里面主要是显示**SD卡**，**网口**，**USB**，**摄像头**是否初始化成功状态，`app_main`函数中调用需要的示例，目前没有其他展示功能
+The APP primarily displays the initialization status of the following components: **SD Card**, **Ethernet**, **USB**, and **Camera**. The `app_main` function calls the required examples. Currently, there are no additional features displayed.
 
-## RGB 屏幕
-- 屏幕使用的为RGB565的接口
-- 屏幕触摸与摄像头共用一个I2C
+## RGB Screen
+- The screen uses an **RGB565 interface**.
+- The screen's touch functionality shares the same **I2C bus** with the camera.

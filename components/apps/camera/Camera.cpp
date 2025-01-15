@@ -92,7 +92,7 @@ bool Camera::run(void)
         _camera_init_sem = xSemaphoreCreateBinary();
         assert(_camera_init_sem != NULL);
 
-        xTaskCreatePinnedToCore((TaskFunction_t)taskCameraInit, "Camera Init", 4096, this, 5, NULL, 0);
+        xTaskCreatePinnedToCore((TaskFunction_t)taskCameraInit, "Camera Init", 4096, this, 5, NULL, 1);
         if (xSemaphoreTake(_camera_init_sem, pdMS_TO_TICKS(CAMERA_INIT_TASK_WAIT_MS)) != pdTRUE) {
             ESP_LOGE(TAG, "Camera init timeout");
             return false;
@@ -337,7 +337,7 @@ void Camera::taskCameraInit(Camera *app)
     ESP_ERROR_CHECK(app_video_set_bufs(app->_camera_ctlr_handle, EXAMPLE_CAM_BUF_NUM, (const void **)app->_cam_buffer));
 
     ESP_LOGI(TAG, "Start camera stream task");
-    ESP_ERROR_CHECK(app_video_stream_task_start(app->_camera_ctlr_handle, 0));
+    ESP_ERROR_CHECK(app_video_stream_task_start(app->_camera_ctlr_handle, 1));
 
     xSemaphoreGive(app->_camera_init_sem);
 
