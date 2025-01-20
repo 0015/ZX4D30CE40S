@@ -20,10 +20,10 @@
 
 static const char *TAG = "app_video";
 
-#define MAX_BUFFER_COUNT                (3)
+#define MAX_BUFFER_COUNT                (6)
 #define MIN_BUFFER_COUNT                (2)
-#define VIDEO_TASK_STACK_SIZE           (4 * 1024)
-#define VIDEO_TASK_PRIORITY             (4)
+#define VIDEO_TASK_STACK_SIZE           (8 * 1024)
+#define VIDEO_TASK_PRIORITY             (3)
 
 typedef enum {
     VIDEO_TASK_DELETE = BIT(0),
@@ -294,7 +294,7 @@ errout:
 
 static inline esp_err_t video_stream_start(int video_fd)
 {
-    ESP_LOGI(TAG, "Video Stream Start %d",video_fd);
+    ESP_LOGI(TAG, "Video Stream Start");
 
     int type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
     if (ioctl(video_fd, VIDIOC_STREAMON, &type)) {

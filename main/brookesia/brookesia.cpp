@@ -74,9 +74,9 @@ void brookesia_demo_ui(lv_disp_t *dispdd, lv_indev_t *touch)
     ESP_BROOKESIA_CHECK_NULL_EXIT(app_game2048, "Create app game2048 failed");
     ESP_BROOKESIA_CHECK_FALSE_EXIT((phone->installApp(app_game2048) >= 0), "Install app game2048 failed");
 
-    // Camera *app_camera = new Camera(800, 640);
-    // ESP_BROOKESIA_CHECK_NULL_EXIT(app_camera, "Create app camera failed");
-    // ESP_BROOKESIA_CHECK_FALSE_EXIT((phone->installApp(app_camera) >= 0), "Install app camera failed");
+    Camera *app_camera = new Camera(800, 640);
+    ESP_BROOKESIA_CHECK_NULL_EXIT(app_camera, "Create app camera failed");
+    ESP_BROOKESIA_CHECK_FALSE_EXIT((phone->installApp(app_camera) >= 0), "Install app camera failed");
 
     /* Create a timer to update the clock */
     lv_timer_create(on_clock_update_timer_cb, 1000, phone);
