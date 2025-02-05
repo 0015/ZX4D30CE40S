@@ -32,7 +32,7 @@
 #define EXAMPLE_LCD_DRAW_BUFF_DOUBLE (1)
 #define EXAMPLE_LCD_DRAW_BUFF_HEIGHT (100)
 #define EXAMPLE_LCD_RGB_BUFFER_NUMS (2)
-#define EXAMPLE_LCD_RGB_BOUNCE_BUFFER_HEIGHT (10)
+#define EXAMPLE_LCD_RGB_BOUNCE_BUFFER_HEIGHT (30)
 
 /* LCD pins */
 #define EXAMPLE_LCD_GPIO_DISP (GPIO_NUM_NC)
@@ -45,7 +45,7 @@
 
 #define EXAMPLE_LCD_PANEL_35HZ_RGB_TIMING() \
     {                                       \
-        .pclk_hz = 25 * 1000 * 1000,        \
+        .pclk_hz = 20 * 1000 * 1000,        \
         .h_res = EXAMPLE_LCD_H_RES,         \
         .v_res = EXAMPLE_LCD_V_RES,         \
         .hsync_pulse_width = 40,            \
@@ -245,7 +245,7 @@ static esp_err_t app_lvgl_init(void)
 {
     /* Initialize LVGL */
     const lvgl_port_cfg_t lvgl_cfg = {
-        .task_priority = 4,       /* LVGL task priority */
+        .task_priority = 8,       /* LVGL task priority */
         .task_stack = 10 * 1024,  /* LVGL task stack size */
         .task_affinity = 1,       /* LVGL task pinned to core (-1 is no affinity) */
         .task_max_sleep_ms = 500, /* Maximum sleep in LVGL task */

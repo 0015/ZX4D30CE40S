@@ -255,7 +255,7 @@ static void debug_task(void *arg)
             .jpeg_buf = jpeg,
             .jpeg_size = jpeg_encoded_size,
         };
-        memcpy(jpeg, wc->jpeg_out_buf, jpeg_encoded_size);
+        lv_memcpy(jpeg, wc->jpeg_out_buf, jpeg_encoded_size);
         if (xQueueSend(jpeg_queue, &jpeg_buf, pdMS_TO_TICKS(1000)) == pdFALSE)
         {
             free(jpeg);

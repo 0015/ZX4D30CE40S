@@ -89,7 +89,7 @@ dependencies:
       type: service
     version: 1.0.4
   espressif/esp_hosted:
-    component_hash: 8d2e114d0227fef7282d49591b2d1a8241415d0ebfa76402835d7a3f46887350
+    component_hash: d88ddab47452b0d614dc7fa27c921d39688b16e2201fa7f467588355fc0ece86
     dependencies:
     - name: idf
       require: private
@@ -97,7 +97,7 @@ dependencies:
     source:
       registry_url: https://components.espressif.com
       type: service
-    version: 1.0.5
+    version: 1.1.2
   espressif/esp_ipa:
     component_hash: 7547b050a99351a85aaba8ba38211c36fd4769c2ae3e570fa330dc90dfd2704c
     dependencies:
@@ -115,7 +115,7 @@ dependencies:
     - esp32p4
     version: 0.2.0
   espressif/esp_jpeg:
-    component_hash: ca1494551d0436b0dbba379c578da2c0d1b8d8756240e5e99f172744dad8e842
+    component_hash: 14c7335ea46c9ba51af8222ce7c31fe8c4f3417bece0287fdb4152f81cb6af95
     dependencies:
     - name: idf
       require: private
@@ -123,7 +123,7 @@ dependencies:
     source:
       registry_url: https://components.espressif.com
       type: service
-    version: 1.2.0
+    version: 1.2.1
   espressif/esp_lcd_touch:
     component_hash: 779b4ba2464a3ae85681e4b860caa5fdc35801458c23f3039ee761bae7f442a4
     dependencies:
@@ -227,7 +227,7 @@ dependencies:
       type: service
     version: 1.4.3
   espressif/tinyusb:
-    component_hash: 7f73a4159dc95325ceaa4ade5e88734c4e1f5124746a3765cf61dc6157d78798
+    component_hash: 0f96faa5e29d5a04553ba7050b9051c1f6b549b9340681eb7afdda419a8dff2e
     dependencies:
     - name: idf
       require: private
@@ -239,7 +239,7 @@ dependencies:
     - esp32s2
     - esp32s3
     - esp32p4
-    version: 0.17.0~2
+    version: 0.18.0~1
   idf:
     source:
       type: idf
@@ -261,6 +261,6 @@ direct_dependencies:
 - espressif/mdns
 - idf
 - lvgl/lvgl
-manifest_hash: d6bbbbc6d7de596295ab6726d18e0cdad6afb9c4590359310a751ba395947c8e
+manifest_hash: 295371b59a03b0660931df565c9826f399ee66581309bb03e3c500483a288932
 target: esp32p4
 version: 2.0.0

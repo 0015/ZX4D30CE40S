@@ -134,7 +134,7 @@ bool Camera::run(void)
         .data_size = _img_album_buf_bytes,
         .data = (const uint8_t *)_img_album_buffer,
     };
-    memcpy(&_img_album_dsc, &img_dsc, sizeof(lv_img_dsc_t));
+    lv_memcpy(&_img_album_dsc, &img_dsc, sizeof(lv_img_dsc_t));
 
     lv_obj_refr_size(ui_PanelCameraShotAlbum);
     lv_obj_clear_flag(ui_PanelCameraShotAlbum, LV_OBJ_FLAG_CLICKABLE);
@@ -148,8 +148,8 @@ bool Camera::run(void)
     img_dsc.header.w = _hor_res;
     img_dsc.header.h = _ver_res;
     img_dsc.data_size = _img_refresh_dsc.data_size;
-    memcpy(&_img_photo_dsc, &img_dsc, sizeof(lv_img_dsc_t));
-    memcpy(_img_album_buffer, _img_refresh_dsc.data, _img_refresh_dsc.data_size);
+    lv_memcpy(&_img_photo_dsc, &img_dsc, sizeof(lv_img_dsc_t));
+    lv_memcpy(_img_album_buffer, _img_refresh_dsc.data, _img_refresh_dsc.data_size);
     lv_obj_set_width(ui_ImageCameraPhotoImage, _hor_res);
     lv_obj_set_height(ui_ImageCameraPhotoImage, _ver_res);
     lv_img_set_src(ui_ImageCameraPhotoImage, &_img_photo_dsc);
@@ -288,7 +288,7 @@ bool Camera::init(void)
         .data = (const uint8_t *)_cam_buffer[0],
     };
 
-    memcpy(&_img_refresh_dsc, &img_dsc, sizeof(lv_img_dsc_t));
+    lv_memcpy(&_img_refresh_dsc, &img_dsc, sizeof(lv_img_dsc_t));
 
     size_t detect_buf_size = ALIGN_UP_BY(_hor_res * _ver_res * BSP_LCD_BITS_PER_PIXEL / 8, data_cache_line_size);
 
@@ -354,7 +354,7 @@ void Camera::onScreenCameraShotBtnClick(lv_event_t *e)
     lv_img_set_src(camera->_img_album, &camera->_img_album_dsc);
 
     xEventGroupClearBits(camera_event_group, CAMERA_EVENT_TASK_RUN);
-    memcpy(camera->_img_album_buffer, camera->_img_refresh_dsc.data,
+    lv_memcpy(camera->_img_album_buffer, camera->_img_refresh_dsc.data,
            camera->_img_refresh_dsc.data_size);
     xEventGroupSetBits(camera_event_group, CAMERA_EVENT_TASK_RUN);
 }
